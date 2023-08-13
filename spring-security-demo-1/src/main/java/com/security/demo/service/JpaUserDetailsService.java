@@ -17,12 +17,11 @@ public class JpaUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository ;
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
     
         var user = this.userRepository.findUserByUsername(username); 
-        System.out.println(user.get());
+        // System.out.println(user.get());   // :Debug
         
         return user
             .map(SecurityUser::new) // same as (user -> new SecurityUser(user))

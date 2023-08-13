@@ -4,6 +4,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class SpringSecurityDemo1Application 
 implements CommandLineRunner {
@@ -11,8 +12,8 @@ implements CommandLineRunner {
 	public static void main(String[] args) {
 
 		// passwords : 
-		// himadri -> mypass 
-		// username -> password
+		// himadri  ->  mypass 
+		// username ->  password
 
 		SpringApplication.run(SpringSecurityDemo1Application.class, args);
 	}

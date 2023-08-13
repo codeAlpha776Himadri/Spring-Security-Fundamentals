@@ -8,6 +8,9 @@ class SpringSecurityDemo1ApplicationTests {
 
 	@Test
 	void contextLoads() {
+
+		
+
 	}
 
 }
