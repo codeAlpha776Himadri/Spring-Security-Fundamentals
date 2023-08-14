@@ -27,10 +27,16 @@ public class User {
     private String password ; 
 
 
+    /* Please refer Hibernate relationships */
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_authorities" , 
-        joinColumns = @JoinColumn(name = "user_id") ,    /*  */
-        inverseJoinColumns = @JoinColumn(name = "authority_id")   /*  */
+
+        /* colum name of joined table referenced to User (this object) */
+        joinColumns = @JoinColumn(name = "user_id") ,    
+
+        /* colum name of joined table referenced to Authority  */
+        inverseJoinColumns = @JoinColumn(name = "authority_id")  
+
     )
     private Set<Authority> authorities ;
 
