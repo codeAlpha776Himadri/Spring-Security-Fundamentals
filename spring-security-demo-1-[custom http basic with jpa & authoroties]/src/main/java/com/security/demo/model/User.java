@@ -27,7 +27,7 @@ public class User {
     private String password ; 
 
 
-    /* Please refer Hibernate relationships */
+    /* Please refer Hibernate relationships - to learn more */
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "users_authorities" , 
 
