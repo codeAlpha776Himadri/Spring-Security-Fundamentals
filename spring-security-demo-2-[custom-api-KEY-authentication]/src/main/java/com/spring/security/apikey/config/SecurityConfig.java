@@ -8,6 +8,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.spring.security.apikey.config.security.filters.MyCustomFilter;
+// import com.spring.security.apikey.config.security.filters.DemoFilter;
 
 import lombok.AllArgsConstructor;
 
@@ -17,8 +18,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class SecurityConfig {
     
-    private final  MyCustomFilter myCustomFilter ;
-
+    private final  MyCustomFilter myCustomFilter ; // filter for api key authentication 
+    // private final  DemoFilter demofilter ;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
@@ -28,7 +29,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests((req) -> 
                     req.anyRequest().authenticated() 
                 )
-                .addFilterAt(this.myCustomFilter, UsernamePasswordAuthenticationFilter.class) // we add our custom auth filter here 
+                .addFilterBefore(this.myCustomFilter, UsernamePasswordAuthenticationFilter.class) // we add our custom auth filter here
                 .build()  
         );
     }

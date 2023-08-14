@@ -27,6 +27,10 @@ public class MyCustomAuthentication implements Authentication {
     private final boolean isAuthenticated ; 
     private final String key ; 
 
+    // There could be more fields ::: final vars can be set only using contructor
+    // private final String username ; 
+    // private final String password ;
+
     // important methods - start //
 
     @Override

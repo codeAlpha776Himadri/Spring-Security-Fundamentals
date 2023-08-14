@@ -21,6 +21,7 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public class MyCustomFilter extends OncePerRequestFilter {
 
+
     private final MyCustomAuthenticationManager myCustomAuthenticationManager ;
 
 
@@ -38,16 +39,15 @@ public class MyCustomFilter extends OncePerRequestFilter {
          *   4. if the object is authenticated i.e {authentication.isAuthenticated()} returns {true}
          *   5. then set the authentication object in the { SecurityContextHolder } 
          *   6. so that it can later be used by { authorization filters } for authorization of further requests
-         *   7. then delegate the request to the next filter in the chain
-         *   8. if {authentication.isAuthenticated()} returns { false }
+         *   7. then delegate the request to the next filter in the chain.
+         *   8. If {authentication.isAuthenticated()} returns { false }
          *   9. then send appropiate response to the client
         **/
 
 
         // Retrive the key & create new authentication object:
-        String key = String.valueOf(request.getHeader("SECREAT_KEY")) ; // retrive the key from the request Header
+        String key = String.valueOf(request.getHeader("x-api-key")) ; // retrive the key from the request Header
         MyCustomAuthentication myCustomAuthentication = new MyCustomAuthentication(false , key) ;
-
 
         //get back the authentication obj from the {AuthenticationManager} :
         var authentication = this.myCustomAuthenticationManager.authenticate(myCustomAuthentication) ; 
