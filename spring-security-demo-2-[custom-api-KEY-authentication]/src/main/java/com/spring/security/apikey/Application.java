@@ -1,13 +1,25 @@
 package com.spring.security.apikey;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class Application implements CommandLineRunner {
+
+	@Value("${server.port}")
+	private String port ;
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
+	}
+
+
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("\nApp started succesfully at port:"+this.port+"...");
+		
 	}
 
 }
