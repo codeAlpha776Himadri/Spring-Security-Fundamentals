@@ -28,6 +28,7 @@ public class MyCustomAuthenticationProvider1 implements AuthenticationProvider {
         throw  new BadCredentialsException("Incorrect key!!") ; 
     }
 
+    
     @Override
     public boolean supports(Class<?> authentication) {
 
