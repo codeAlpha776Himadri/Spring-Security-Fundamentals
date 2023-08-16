@@ -36,7 +36,7 @@ public class MyCustomAuthenticationProvider1 implements AuthenticationProvider {
 
         // just like this we can have multiple number of prividers that tries to 
         // match with specific type of authentication object :
-        return MyCustomAuthentication.class.equals(authentication) ;
+        return MyCustomAuthentication.class.isAssignableFrom(authentication) ;
     }
     
 }

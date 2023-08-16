@@ -78,8 +78,7 @@ public class MyCustomAuthentication implements Authentication {
 
     @Override
     public String getName() {
-        // TODO Auto-generated method stub
-        return null;
+        return "MyCustomAuthentication";
     }
 
     // garbage methods - end

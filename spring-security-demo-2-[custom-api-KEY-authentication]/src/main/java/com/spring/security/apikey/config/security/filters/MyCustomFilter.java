@@ -3,6 +3,7 @@ package com.spring.security.apikey.config.security.filters;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+// import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
@@ -49,9 +50,14 @@ public class MyCustomFilter extends OncePerRequestFilter {
         String key = String.valueOf(request.getHeader("x-api-key")) ; // retrive the key from the request Header
         MyCustomAuthentication myCustomAuthentication = new MyCustomAuthentication(false , key) ;
 
+        
         //get back the authentication obj from the {AuthenticationManager} :
         var authentication = this.myCustomAuthenticationManager.authenticate(myCustomAuthentication) ; 
         
+
+        // Retrival of username & password from authorization Header: 
+        // String[] up = new Base64().decode(request.getHeader("authorization").split(" ")[1]).toString().split(":") ; 
+
 
         // check if authenticated:
         if (authentication.isAuthenticated()) {
